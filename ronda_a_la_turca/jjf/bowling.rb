@@ -9,14 +9,18 @@ class Bowling
         rush = rush - 1
         if (shots[0] == 10)
           rush = 2
+          rush += 2 if frame == 10
         elsif (shots[0] + shots[1] == 10)
           rush = 1
+          rush += 1 if frame == 10
         end
       end
     end
+
+    if 
   end
 
-  def finished
+  def self.finished
     if shots.length < 10
       false
     elsif shots.last.sum == 10
@@ -27,7 +31,18 @@ class Bowling
   end
 
   def score
+    shots.flatten.inject(0){|sum,x| sum + x } if finished
+  end
+
+  def score_frame(_frame)
+    shots[frame]
   end
 end
 
 bowling = Bowling.new
+bowloing
+
+
+
+
+
