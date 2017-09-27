@@ -1,5 +1,14 @@
 # Yahtzee Dice Game Calculator
 class Yahtzee
+
+  def get_dices
+    dices = []
+    5.times do
+      dices << rand(1..6)
+    end
+  end
+
+
   def suerte(dices)
     dices.inject(:+)
   end
@@ -38,6 +47,26 @@ class Yahtzee
 
   def pairs(dices)
     dices.sort.select { |dice| dice.count(2) }
+  end
+
+  def three_friends(dices)
+  
+  end
+
+  def four_friends
+    
+  end
+
+  def scale
+    
+  end
+
+  def big_scale
+    
+  end
+
+  def full_house
+    
   end
 
   private
