@@ -17,7 +17,13 @@ class Bowling
   end
 
   def finished
-
+    if shots.length < 10
+      false
+    elsif shots.last.sum == 10
+      false
+    else
+      true
+    end
   end
 
   def score
