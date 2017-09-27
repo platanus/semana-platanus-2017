@@ -46,30 +46,49 @@ class Yahtzee
   end
 
   def pairs(dices)
-    dices.sort.select { |dice| dice.count(2) }
+    number_repetition(dices, 2)
   end
 
   def three_friends(dices)
-  
+    number_repetition(dices, 3)          
   end
 
   def four_friends
-    
+    number_repetition(dices, 4)    
   end
 
-  def scale
-    
-  end
-
-  def big_scale
-    
+  def scales
+    if (dices.uniq.length == dices)
+      if (!(dices.include? 6) || !(dices.include? 1))
+        return dices.sum
+      end
+    end
   end
 
   def full_house
-    
+    i = 1
+    two = false
+    three = false
+    while i <= 6  do
+      if (dices.count(i) == 2)
+        two = true
+      end
+      if (dices.count(i) == 3)
+        three = true
+      end
+      i +=1
+    end
+    if (two && three)
+      return true
+    end
+    return false
   end
 
   private
+
+  def number_repetition(dices, num)
+    dices.sort.select { |dice| dice.count(num) }
+  end
 
   def number_category(dices, num)
     dices.select { |dice| dice == num }.sum
